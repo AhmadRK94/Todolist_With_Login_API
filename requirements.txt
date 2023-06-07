@@ -1,0 +1,6 @@
+fastapi[all]
+sqlalchemy
+psycopg2
+passlib[bcrypt]
+python-jose[cryptography]
+alembic
