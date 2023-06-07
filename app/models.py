@@ -21,7 +21,7 @@ class Todos(Base):
     todo_id = Column(Integer, nullable=False, primary_key=True)
     content = Column(String, nullable=False)
     category = Column(String)
-    status = Column(Boolean, nullable=False, default=False)
+    status = Column(Boolean, nullable=False, server_default="False")
     created_at = Column(
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
     )
