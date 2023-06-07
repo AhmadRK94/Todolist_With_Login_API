@@ -32,7 +32,7 @@ def verify_access_token(token: str, credentials_execption):
             raise credentials_execption
     except JWTError:
         raise credentials_execption
-    token_data = schemas.TokenData(id=id)
+    token_data = schemas.TokenData(user_id=id)
     return token_data
 
 
@@ -45,5 +45,5 @@ def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
     token = verify_access_token(token=token, credentials_execption=credential_exception)
-    user = db.query(models.Users).filter(models.Users.user_id == token.id).first()
+    user = db.query(models.Users).filter(models.Users.user_id == token.user_id).first()
     return user
