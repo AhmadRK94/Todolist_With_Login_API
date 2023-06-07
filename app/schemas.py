@@ -8,7 +8,6 @@ class User(BaseModel):
 
 
 class Todo(BaseModel):
-    user_id: int
     content: str
     category: str
     status: bool = False
@@ -24,11 +23,12 @@ class UserResponse(BaseModel):
 
 
 class TodoResponse(BaseModel):
-    user_id: int
+    # owner_id: int
     todo_id: int
     content: str
     category: str
     status: bool
+    owner: UserResponse
 
     class Config:
         orm_mode = True
