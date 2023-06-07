@@ -7,7 +7,9 @@ from typing import List
 router = APIRouter(prefix="/todos", tags=["Todos"])
 
 
-@router.get("/", status_code=status.HTTP_200_OK)
+@router.get(
+    "/", status_code=status.HTTP_200_OK, response_model=List[schemas.TodoResponse]
+)
 def get_all_todos(db: Session = Depends(get_db)):
     todos = db.query(models.Todos).all()
     return todos
