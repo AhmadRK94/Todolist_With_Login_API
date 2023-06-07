@@ -26,6 +26,6 @@ class Todos(Base):
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
     )
     owner_id = Column(
-        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False
+        Integer, ForeignKey("users.user_id", ondelete="CASCADE"), nullable=False
     )
     owner = relationship("Users")
