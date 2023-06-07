@@ -45,5 +45,5 @@ def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
     token = verify_access_token(token=token, credentials_execption=credential_exception)
-    user = db.query(models.Users).filter(models.Users.id == token.id).first()
+    user = db.query(models.Users).filter(models.Users.user_id == token.id).first()
     return user
